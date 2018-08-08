@@ -84,6 +84,9 @@ const views = require('./routes/views')
 app.use('/', auth);
 app.use('/', views);  
 app.use('/', index);
+app.get("*", (req, res)=>{
+  res.sendFile(path.join(__dirname, 'public', "index.html"));
+})
 
 
 module.exports = app;
