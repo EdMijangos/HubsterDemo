@@ -16,6 +16,8 @@ const cors         = require('cors')
 
 mongoose.Promise = Promise;
 mongoose
+//mongodb://localhost/server  mongodb://demo:demo22@ds215502.mlab.com:15502/demo
+//deberia ir en una variable de entorno
   .connect('mongodb://demo:demo22@ds215502.mlab.com:15502/demo', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
@@ -31,6 +33,7 @@ const app = express();
 //passport setup
 app.use(passport.initialize());
 app.use(passport.session());
+//se desactiva el CORS para el deploy
 // app.use(cors({
 //   origin:true,
 //   credentials:true
